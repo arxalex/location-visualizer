@@ -1,0 +1,19 @@
+<div class="modal fade show d-block">
+  <div class="modal-dialog modal-fullscreen-md-down" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLiveLabel">Settings</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="closeSettings.emit()"></button>
+      </div>
+      <div class="modal-body">
+        <div *ngFor="let server of servers" class="d-flex flex-row mb-2">
+          <span class="mx-1">{{server.id}}</span>
+          <input type="url" [(ngModel)]="server.url" class="flex-fill mx-1">
+          <button type="button" class="btn-close" (click)="removeServer(server)"></button>
+        </div>
+        <button class="btn btn-secondary me-1" (click)="addServer()">Add</button>
+        <button class="btn btn-primary" (click)="saveServers()">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
